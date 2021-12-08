@@ -46,6 +46,8 @@ module Hashbrown
 
   COPY_BUTTONS = gen_hash(true)
 
+  FILEPATH_STATUS = Adw::StatusPage.cast(B_HS["filepathStatus"])
+
   CLIPBOARD_HASH = Hash(String, String).new
 
   TEXT_FIELDS = gen_hash(false)

@@ -27,9 +27,9 @@ module Hashbrown
     MAIN_FILE_CHOOSER_NATIVE.transient_for = window
     MAIN_FILE_CHOOSER_NATIVE.response_signal.connect do |response|
       next unless response == -3
-      # Hashbrown.reset(true)
       Hashbrown.reset_feedback
-      generate_hashes(MAIN_FILE_CHOOSER_NATIVE.file.path.not_nil!.to_s)
+
+      set_file(MAIN_FILE_CHOOSER_NATIVE.file.path.not_nil!)
     end
 
     OPEN_FILE_BUTTON.clicked_signal.connect do
@@ -37,7 +37,6 @@ module Hashbrown
     end
 
     TOOL_COMPARE_FILE_CHOOSER_NATIVE.transient_for = window
-    # TOOL_VERIFY_FILE_CHOOSER_NATIVE.transient_for = window
 
     clipboard = window.clipboard
 

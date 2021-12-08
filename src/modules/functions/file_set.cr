@@ -1,4 +1,5 @@
 # Resets the window after a main file set
+# Updates the filename in the StatusPage & calls generate_hashes
 
 module Hashbrown
   extend self
@@ -34,5 +35,10 @@ module Hashbrown
 
     WINDOW_BOX.append(STACK)
     WINDOW_BOX.append(BOTTOM_TABS)
+  end
+
+  def set_file(filepath : Path)
+    FILEPATH_STATUS.title = filepath.basename.to_s
+    Hashbrown.generate_hashes(filepath.to_s)
   end
 end
